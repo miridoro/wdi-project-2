@@ -1,0 +1,6 @@
+#map-canvas {
+  width: 100%;
+  /* vh is view port */
+  height: 100vh;
+  margin: 0 auto;
+}
