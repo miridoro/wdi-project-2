@@ -31,6 +31,7 @@ App.loggedInState = function(){
 
   var username = window.localStorage.getItem("username");
   console.log("Current user is: " + username);
+  $(".userName").html("Hello, " + username);
   //window.localStorage.setItem("user", user);
   //this.getUser();
 
@@ -39,7 +40,10 @@ App.loggedInState = function(){
 App.loggedOutState = function(){
   $(".loggedOut").show();
   $(".loggedIn").hide();
+  $(".loginForm").hide();
+  $(".registerForm").hide();
   $(".card-deck-wrapper").hide();
+  $(".userName").html("");
 //  this.register();
 };
 
@@ -137,10 +141,14 @@ App.usersIndex = function(){
   return this.ajaxRequest(url, "get", null, (data) => {
 
     $.each(data.users, (i, user) => {
-      $(".userName").append(`<h4> ${user._id}</h4>`);
+      // $(".userName").append(`<h4> ${user._id}</h4>`);
+
+      // $(".userName").html(`${user.username}`);
+      // $(".userName").html(`${user._id}`);
     });
   });
 };
+
 
 // App.getUser = function(){
 //   let url = `${this.apiUrl}/users/` + this.getToken();
