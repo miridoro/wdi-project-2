@@ -11,7 +11,7 @@ App.init = function() {
   $(".logout").on("click", this.logout.bind(this));
   $(".usersIndex").on("click", this.usersIndex.bind(this));
   $('.new').on('click', function() {
-    // e.preventDefault();
+    e.preventDefault();
     console.log("Toggle Form");
     $('form').slideToggle();
 
