@@ -17,7 +17,7 @@
   <body>
     <nav class="navbar navbar-light bg-faded">
       <div class="container">
-        <a class="navbar-brand" href="/">Santander Bike Points</a>
+        <a class="navbar-brand" href="/">Salamander Bikes</a>
         <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
           &#9776;
         </button>
@@ -27,10 +27,10 @@
               <a class="nav-link usersIndex loggedIn" href="#"> <span class="sr-only">(current)</span></a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link register loggedOut new" href="#">Register</a>
+              <a class="nav-link register loggedOut new btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" href="#">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link login loggedOut" href="#">Login</a>
+              <a class="nav-link login loggedOut new btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" href="#">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link logout loggedIn" href="/">Logout</a>
@@ -46,7 +46,8 @@
 
 
     <main class="container">
-      <div class="loggedOut registerForm hideForm">
+      <!-- <div class="loggedOut registerForm hideForm">
+
 
       <form  method="post" action="/register">
         <h2>Register</h2>
@@ -64,11 +65,12 @@
         </div>
         <input class="btn btn-primary" type="submit" value="Register">
       </form>
-      </div>
+      </div> -->
 
-      <div class="loggedOut loginForm hideForm">
-      <h2>Login</h2>
+      <!-- <div class="loggedOut loginForm hideForm">
+
       <form method="post" action="/login">
+        <h2>Login</h2>
         <div class="form-group">
           <input class="form-control" type="email" name="email" placeholder="Email">
         </div>
@@ -77,9 +79,80 @@
         </div>
         <input class="btn btn-primary" type="submit" value="Login">
       </form>
-      </div>
+      </div> -->
 
-    </main>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Register</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="loggedOut registerForm hideForm">
+        <form  method="post" action="/register">
+          <div class="form-group">
+            <input class="form-control" type="text" name="user[username]" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="email" name="user[email]" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="password" name="user[password]" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="password" name="user[passwordConfirmation]" placeholder="Password Confirmation">
+          </div>
+          <input class="btn btn-primary" type="submit" value="Register">
+        </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="loggedOut loginForm hideForm">
+
+        <form method="post" action="/login">
+          <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+          </div>
+          <input class="btn btn-primary" type="submit" value="Login">
+        </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+
 
 
     <div id="map-canvas"></div>

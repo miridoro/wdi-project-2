@@ -1,1 +1,1 @@
-#map-canvas{width:100%;height:100vh;margin:0 auto}.hideForm{display:none}.userName{float:right}
+#map-canvas,nav{position:absolute}main,nav{z-index:2}#map-canvas{width:100%;height:100vh;margin:0 auto;z-index:-1}.hideForm{display:none}.userName{float:right}nav{background:rgba(0,0,0,.9);text-align:center}

@@ -10,19 +10,18 @@ App.init = function() {
   $(".login").on("click", this.login.bind(this));
   $(".logout").on("click", this.logout.bind(this));
   $(".usersIndex").on("click", this.usersIndex.bind(this));
-  $('.new').on('click', function() {
-    e.preventDefault();
-    console.log("Toggle Form");
-    $('form').slideToggle();
-
-  });
+  // $('.new').on('click', function() {
+  //   // e.preventDefault();
+  //   console.log("Toggle Form");
+  //   $('form').slideToggle();
+  // });
   this.$main.on("submit", "form", this.handleForm);
 
-
-  App.toggleForm  = function() {
-    console.log("Toggle Form");
-    $('form').slideToggle();
-  };
+  //
+  // googleMap.toggleForm  = function() {
+  //   console.log("Toggle Form");
+  //   $('form').slideToggle();
+  // };
 
 
   if (this.getToken()) {
@@ -174,6 +173,8 @@ App.usersIndex = function(){
 
 App.handleForm = function(){
   event.preventDefault();
+  $('#myModal').modal('hide');
+  $('#myModal2').modal('hide');
 
   let url    = `${App.apiUrl}${$(this).attr("action")}`;
   let method = $(this).attr("method");
