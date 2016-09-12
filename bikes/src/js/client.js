@@ -154,7 +154,7 @@ googleMap.addInfoWindowForBike = function(data, marker) {
     if(typeof this.infoWindow != "undefined") this.infoWindow.close();
 
     this.infoWindow = new google.maps.InfoWindow({
-      content:`<p>Find me at: ${ data.name }<br><p>Bikes Available: ${ data.NbEmptyDocks}</p></p>`
+      content:`<div><h4 id="bikeLocation">${ data.name }</h4><br><p id="bikesAvailable"><strong>Bikes Available: ${ data.NbEmptyDocks}</strong></p></div>`
     });
 
     this.infoWindow.open(this.map, marker);

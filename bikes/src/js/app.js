@@ -44,7 +44,7 @@ App.loggedInState = function(){
 
   var username = window.localStorage.getItem("username");
   console.log("Current user is: " + username);
-  $(".userName").html("Hello, " + username);
+  $(".userName").html("Welcome " + username + "!");
   //window.localStorage.setItem("user", user);
   //this.getUser();
 
