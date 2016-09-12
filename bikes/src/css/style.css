@@ -1,14 +1,13 @@
 #map-canvas {
-  width: 80%;
+  width: 100%;
   /* vh is view port */
-  height: 80vh;
+  height: 100vh;
   margin: 0 auto;
 }
 
 .hideForm {
   display: none;
 }
-
 
 .userName {
   float: right;
