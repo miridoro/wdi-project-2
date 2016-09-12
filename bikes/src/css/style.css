@@ -1,0 +1,15 @@
+#map-canvas {
+  width: 80%;
+  /* vh is view port */
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.hideForm {
+  display: none;
+}
+
+
+.userName {
+  float: right;
+}

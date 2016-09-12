@@ -1,45 +1,11 @@
 const express = require('express');
 const request = require("request");
 const fs      = require('fs');
-const path    = require("path");
-//added
-const morgan     = require("morgan");
-const bodyParser = require("body-parser");
-const cors       = require("cors");
-const mongoose   = require("mongoose");
-const expressJWT = require("express-jwt");
-
-const app = express();
-//added
-const config     = require("./config/config");
-const apiRouter  = require("./config/apiRoutes");
-
-//added
-mongoose.connect(config.db);
-app.use(morgan("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+const path       = require("path");
 
 
+var app = express();
 app.use(express.static(path.join(__dirname, ".")));
-
-//added
-app.use("/api", expressJWT({ secret: config.secret })
-  .unless({
-    path: [
-      { url: "/api/register", methods: ["POST"] },
-      { url: "/api/login",    methods: ["POST"] },
-    ]
-  }));
-app.use(jwtErrorHandler);
-
-function jwtErrorHandler(err, req, res, next){
-  if (err.name !== "UnauthorizedError") return next();
-  return res.status(401).json({ message: "Unauthorized request." });
-}
-
-
 
 app.get('/geturl', function (req, res) {
 
@@ -92,11 +58,17 @@ app.get('/bikes', function (req, res) {
 
         output[i] = item;
     }
+
+
+
   res.send(output);
+
 });
 
 
-//added
-app.use("/api", apiRouter);
 
-app.listen(config.port, () => console.log(`Express started on port: ${config.port}`));
+
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
