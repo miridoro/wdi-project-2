@@ -71,37 +71,37 @@ app.get('/', function (req, res) {
 });
 
 
+// app.get('/bikes', function (req, res) {
+//     var tfl_json = JSON.parse(fs.readFileSync('BikePoint.json', 'utf8'));
+//
+//     var output = [];
+//
+//     for (i = 0; i < tfl_json.length; i++) {
+//         var item = {};
+//         item.name = tfl_json[i].commonName;
+//         item.id = tfl_json[i].id;
+//         item.lat = tfl_json[i].lat;
+//         item.lon = tfl_json[i].lon;
+//         //item.additionalProperties = tfl_json[i].additionalProperties;
+//
+//         var properties = tfl_json[i].additionalProperties;
+//         for (j=0; j<properties.length; j++) {
+//             item[properties[j].key] = properties[j].value;
+//
+//             //to simplify JSON set even more
+//
+//             // var key = properties[j].key;
+//             // item[key] = properties[j].value;
+//         }
+//
+//         output[i] = item;
+//     }
+//   res.send(output);
+// });
+
+
+
 app.get('/bikes', function (req, res) {
-    var tfl_json = JSON.parse(fs.readFileSync('BikePoint.json', 'utf8'));
-
-    var output = [];
-
-    for (i = 0; i < tfl_json.length; i++) {
-        var item = {};
-        item.name = tfl_json[i].commonName;
-        item.id = tfl_json[i].id;
-        item.lat = tfl_json[i].lat;
-        item.lon = tfl_json[i].lon;
-        //item.additionalProperties = tfl_json[i].additionalProperties;
-
-        var properties = tfl_json[i].additionalProperties;
-        for (j=0; j<properties.length; j++) {
-            item[properties[j].key] = properties[j].value;
-
-            //to simplify JSON set even more
-
-            // var key = properties[j].key;
-            // item[key] = properties[j].value;
-        }
-
-        output[i] = item;
-    }
-  res.send(output);
-});
-
-
-
-app.get('/bikes2', function (req, res) {
 
   request({
       url: "https://api.tfl.gov.uk/BikePoint?app_id=&app_key= ",
@@ -132,10 +132,6 @@ app.get('/bikes2', function (req, res) {
                 output[i] = item;
             }
             res.send(output);
-
-
-              res.send(body);
-              console.log(body); //Print the json response
           }
   });
 

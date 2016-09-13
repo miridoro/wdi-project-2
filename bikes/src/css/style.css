@@ -5,6 +5,26 @@
   margin: 0 auto;
 }
 
+.btn-group {
+  z-index: 2;
+  margin: 0 auto;
+  position: absolute;
+  margin-left: 300px;
+  margin-top: 20px;
+}
+
+.switchButton1 {
+  font-size: 0.7em;
+  background-color: white;
+  color: green;
+}
+
+.switchButton2 {
+  font-size: 0.7em;
+  background-color: white;
+  color: blue;
+}
+
 #bikeLocation {
   margin: 10px;
   font-size: 1.3em;

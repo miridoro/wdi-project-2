@@ -231,13 +231,21 @@
     };
 
     globals.App.createMarkerForBike = function (data) {
+
+        var size = Math.sqrt(data.NbBikes) * 3;
+        // if(data.NbBikes < 3){
+        //   size = 8;
+        // } else {
+        //   size= 14;
+        // }
+
         var latLng = new google.maps.LatLng(data.lat, data.lon);
         var marker = new google.maps.Marker({
             position: latLng,
             map: this.map,
             icon: {
                 url: "markerblue2.png",
-                scaledSize: new google.maps.Size(14, 14)
+                scaledSize: new google.maps.Size(size, size)
             }
             // animation: google.maps.Animation.DROP,
         });

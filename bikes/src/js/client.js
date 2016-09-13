@@ -312,13 +312,21 @@
 
 
   globals.App.createMarkerForBike = function(data) {
+
+    let size = Math.sqrt(data.NbBikes) * 3;
+    // if(data.NbBikes < 3){
+    //   size = 8;
+    // } else {
+    //   size= 14;
+    // }
+
     let latLng = new google.maps.LatLng(data.lat,data.lon);
     let marker = new google.maps.Marker({
       position: latLng,
       map: this.map,
       icon: {
         url: "markerblue2.png",
-        scaledSize: new google.maps.Size(14, 14)
+        scaledSize: new google.maps.Size(size, size)
       }
       // animation: google.maps.Animation.DROP,
     });
