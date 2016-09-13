@@ -6,13 +6,24 @@
 }
 
 #bikeLocation {
-  font-size: 1.4em;
+  margin: 10px;
+  font-size: 1.3em;
+  text-align: left;
+  font-family: helvetica;
 }
 
 #bikesAvailable {
-  text-align: center;
-  font-size: 1.2em;
-  font-family: cursive;
+  margin: 10px;
+  text-align: left;
+  font-size: 1.3em;
+  font-family: helvetica;
+}
+
+#emptyDocks {
+  margin: 10px;
+  text-align: left;
+  font-size: 1.3em;
+  font-family: helvetica;
 }
 
 
@@ -49,4 +60,9 @@ main {
 
 .greeting {
   text-align: right;
+}
+
+#brand {
+  color: cornflowerblue;
+  font-family: helvetica;
 }

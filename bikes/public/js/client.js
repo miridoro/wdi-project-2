@@ -190,12 +190,13 @@
                 position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                 map: globals.App.map,
                 icon: {
-                    url: "http://furtaev.ru/preview/user_on_map_2_small.png",
-                    scaledSize: new google.maps.Size(56, 56)
+                    url: "markerred.png",
+                    scaledSize: new google.maps.Size(21, 21)
                 }
             });
 
             globals.App.map.setCenter(marker.getPosition());
+            console.log("The User's Position is: " + marker.getPosition());
         });
     };
 
@@ -221,7 +222,7 @@
             if (typeof _this.infoWindow != "undefined") _this.infoWindow.close();
 
             _this.infoWindow = new google.maps.InfoWindow({
-                content: '<div><h4 id="bikeLocation">' + data.name + '</h4><br><p id="bikesAvailable"><strong>Bikes Available: ' + data.NbEmptyDocks + '</strong></p></div>'
+                content: '<div><p id="bikeLocation">Location: ' + data.name + '</p><p id="bikesAvailable"><strong>Bikes Available: ' + data.NbBikes + '</strong></p>\n        <p id="emptyDocks"><strong>Empty Docks: ' + data.NbEmptyDocks + '</strong></p>\n        </div>'
             });
 
             _this.infoWindow.open(_this.map, marker);
@@ -235,8 +236,8 @@
             position: latLng,
             map: this.map,
             icon: {
-                url: "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/256/Map-Marker-Marker-Outside-Chartreuse.png",
-                scaledSize: new google.maps.Size(22, 22)
+                url: "markerblue2.png",
+                scaledSize: new google.maps.Size(14, 14)
             }
             // animation: google.maps.Animation.DROP,
         });

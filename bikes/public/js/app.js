@@ -17,6 +17,7 @@
     $(".logout").on("click", this.logout.bind(this));
     $('.location').on('click', this.getCurrentLocation);
     $(".usersIndex").on("click", this.usersIndex.bind(this));
+    $(".emptyMap").on("click", this.emptyMap);
 
     this.$main.on("submit", "form", this.handleForm);
 
@@ -46,8 +47,11 @@
     //this.getUser();
   };
 
-  globals.App.loggedOutState = function () {
+  globals.App.emptyMap = function () {
     globals.App.mapSetup();
+  };
+
+  globals.App.loggedOutState = function () {
     console.log("We are logged out now");
     $(".loggedIn").hide();
     $(".loggedOut").show();
