@@ -50,13 +50,8 @@ app.get('/geturl', function (req, res) {
 
             if (!error && response.statusCode === 200) {
                 res.send(body);
-                //console.log(body) //Print the json response
             }
     });
-
-
- // res.send('Hello World!');
-
 });
 
 app.get('/getfile', function (req, res) {
@@ -100,7 +95,7 @@ app.get('/', function (req, res) {
 // });
 
 
-
+// get data directly from url
 app.get('/bikes', function (req, res) {
 
   request({
@@ -123,7 +118,7 @@ app.get('/bikes', function (req, res) {
                 for (j=0; j<properties.length; j++) {
                     item[properties[j].key] = properties[j].value;
 
-                    //to simplify JSON set even more
+                    //to simplify JSON even more
 
                     // var key = properties[j].key;
                     // item[key] = properties[j].value;
@@ -134,14 +129,9 @@ app.get('/bikes', function (req, res) {
             res.send(output);
           }
   });
-
-
 });
 
 
-
-
-//added
 app.use("/api", apiRouter);
 
 app.listen(config.port, () => console.log(`Express started on port: ${config.port}`));

@@ -204,12 +204,20 @@
         return $.get("http://localhost:3000/bikes").done(this.loopThroughBikes);
     };
 
+    // globals.App.getDockPoints = function() {
+    //   return $.get("http://localhost:3000/bikes").done(this.loopThroughDocks);
+    // };
+
+
     globals.App.loopThroughBikes = function (data) {
-        console.log(data);
-
         return $.each(data, function (index, data) {
+            globals.App.createMarker(data);
+        });
+    };
 
-            globals.App.createMarkerForBike(data);
+    globals.App.loopThroughDocks = function (data) {
+        return $.each(data, function (index, data) {
+            globals.App.createMarkerForDock(data);
         });
     };
 
@@ -230,24 +238,27 @@
         });
     };
 
-    globals.App.createMarkerForBike = function (data) {
-
-        var size = Math.sqrt(data.NbBikes) * 3;
+    globals.App.createMarker = function (data) {
+        var sizeBikes = Math.sqrt(data.NbBikes) * 3.5;
+        var sizeDocks = Math.sqrt(data.NbEmptyDocks) * 3;
         // if(data.NbBikes < 3){
         //   size = 8;
         // } else {
         //   size= 14;
         // }
 
+        var urlBikes = "markerblue2.png";
+        var urlDocks = "markerpurple.png";
+
         var latLng = new google.maps.LatLng(data.lat, data.lon);
+
         var marker = new google.maps.Marker({
             position: latLng,
             map: this.map,
             icon: {
-                url: "markerblue2.png",
-                scaledSize: new google.maps.Size(size, size)
+                url: urlBikes,
+                scaledSize: new google.maps.Size(sizeBikes, sizeBikes)
             }
-            // animation: google.maps.Animation.DROP,
         });
         this.addInfoWindowForBike(data, marker);
     };

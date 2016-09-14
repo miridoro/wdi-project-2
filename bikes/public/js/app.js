@@ -10,6 +10,7 @@
   globals.App.init = function () {
     this.apiUrl = "http://localhost:3000/api";
     this.$main = $("main");
+    this.whichMarker = "NbBikes";
 
     //set up event listeners
     $(".register").on("click", this.register.bind(this));
@@ -17,8 +18,10 @@
     $(".logout").on("click", this.logout.bind(this));
     $('.location').on('click', this.getCurrentLocation);
     $(".usersIndex").on("click", this.usersIndex.bind(this));
-    $(".emptyMap").on("click", this.emptyMap);
-    $(".hideButton").on("click", this.hideButton.bind(this));
+    $(".emptyMap").on("click", this.emptyMap.bind(this));
+    $(".hideButton").on("click", this.hideButton);
+    $(".switchButton1").on("click", this.showBikesMarkers.bind(this, $(".switchButton1")));
+    $(".switchButton2").on("click", this.showBikesMarkers);
 
     this.$main.on("submit", "form", this.handleForm);
 
@@ -30,8 +33,6 @@
       $(".loginForm").hide();
       $(".registerForm").hide();
       $(".btn-group").hide();
-      $("switchButton1").hide();
-      $("switchButton2").hide();
     }
   };
 
@@ -39,8 +40,6 @@
     console.log("We are logged in now");
     $(".loggedOut").hide();
     $(".btn-group").show();
-    $("switchButton1").show();
-    $("switchButton2").show();
     $(".loggedIn").show();
     this.usersIndex();
 
@@ -59,8 +58,12 @@
   };
 
   globals.App.hideButton = function () {
-    $("switchButton1").hide();
-    $("switchButton2").hide();
+    $(".btn-group").hide();
+  };
+
+  globals.App.showBikesMarkers = function (button) {
+    // $(".switchButton2").addClass("bikes");
+    alert("Hello world");
   };
 
   globals.App.loggedOutState = function () {
@@ -79,27 +82,6 @@
     //added
     $(".loginForm").hide();
     $(".registerForm").show();
-
-    // this.$main.html(`
-    //   <div class="loggedOut">
-    //   <h2 >Register</h2>
-    //   <form  method="post" action="/register">
-    //     <div class="form-group">
-    //       <input class="form-control" type="text" name="user[username]" placeholder="Username">
-    //     </div>
-    //     <div class="form-group">
-    //       <input class="form-control" type="email" name="user[email]" placeholder="Email">
-    //     </div>
-    //     <div class="form-group">
-    //       <input class="form-control" type="password" name="user[password]" placeholder="Password">
-    //     </div>
-    //     <div class="form-group">
-    //       <input class="form-control" type="password" name="user[passwordConfirmation]" placeholder="Password Confirmation">
-    //     </div>
-    //     <input class="btn btn-primary" type="submit" value="Register">
-    //   </form>
-    //   </div>
-    //`);
   };
 
   globals.App.login = function () {
@@ -107,21 +89,6 @@
 
     $(".registerForm").hide();
     $(".loginForm").show();
-
-    // this.$main.html(`
-    //   <div class="loggedOut">
-    //   <h2>Login</h2>
-    //   <form method="post" action="/login">
-    //     <div class="form-group">
-    //       <input class="form-control" type="email" name="email" placeholder="Email">
-    //     </div>
-    //     <div class="form-group">
-    //       <input class="form-control" type="password" name="password" placeholder="Password">
-    //     </div>
-    //     <input class="btn btn-primary" type="submit" value="Login">
-    //   </form>
-    //   </div>
-    // `);
   };
 
   globals.App.logout = function () {
@@ -130,32 +97,9 @@
     this.loggedOutState();
   };
 
-  // globals.App.usersIndex = function(){
-  //   if (event) event.preventDefault();
-  //   let url = `${this.apiUrl}/users`;
-  //   return this.ajaxRequest(url, "get", null, (data) => {
-  //     this.$main.html(`
-  //       <div class="card-deck-wrapper">
-  //         <div class="card-deck">
-  //         </div>
-  //       </div>
-  //     `);
-  //     let $container = this.$main.find(".card-deck");
-  //     $.each(data.users, (i, user) => {
-  //       $container.append(`
-  //         <div class="card col-md-4">
-  //          <div class="card-block">
-  //            <h4 class="card-title">${user.username}</h4>
-  //          </div>
-  //        </div>`);
-  //     });
-  //   });
-  // };
-
   globals.App.usersIndex = function () {
     if (event) event.preventDefault();
     var url = this.apiUrl + "/users";
-    console.log("********************************");
 
     return this.ajaxRequest(url, "get", null, function (data) {
 

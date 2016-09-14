@@ -3,12 +3,11 @@
 
   if (!('App' in globals)) { globals.App = {}; }
 
-
   globals.App.mapSetup = function() {
     let canvas = document.getElementById('map-canvas');
 
     let mapOptions = {
-      zoom: 12,
+      zoom: 13,
       center: new google.maps.LatLng(51.506178,-0.088369),
       mapType: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: true,
@@ -274,21 +273,35 @@
   });
 };
 
+  globals.App.redrawMap = function() {
+      globals.App.emptyMap();
+    return $.get("http://localhost:3000/bikes").done(
+      function(data) {
+
+        globals.App.loopThroughBikes(data);
+      }
+  );
+  };
 
   globals.App.getBikePoints = function() {
     return $.get("http://localhost:3000/bikes").done(this.loopThroughBikes);
   };
 
+  // globals.App.getDockPoints = function() {
+  //   return $.get("http://localhost:3000/bikes").done(this.loopThroughDocks);
+  // };
+
 
 
   globals.App.loopThroughBikes = function(data) {
-    console.log(data);
-
-
     return $.each(data, (index, data) => {
+        globals.App.createMarker(data);
+    });
+  };
 
-        globals.App.createMarkerForBike(data);
-
+  globals.App.loopThroughDocks = function(data) {
+    return $.each(data, (index, data) => {
+        globals.App.createMarkerForDock(data);
     });
   };
 
@@ -311,27 +324,43 @@
   };
 
 
-  globals.App.createMarkerForBike = function(data) {
+  globals.App.createMarker = function(data) {
 
-    let size = Math.sqrt(data.NbBikes) * 3;
+    let radius = 0;
+    let url = "";
+
+
+    if(this.whichMarker === "NbBikes"){
+      radius = Math.sqrt(data.NbBikes) * 3.5;
+      url = "markerblue2.png";
+    }
+    else {
+      radius = Math.sqrt(data.NbEmptyDocks) * 3;
+      url = "markerpurple.png";
+    }
+
+    // let sizeBikes = Math.sqrt(data.NbBikes) * 3.5;
+    // let sizeDocks = Math.sqrt(data.NbEmptyDocks) * 3;
     // if(data.NbBikes < 3){
     //   size = 8;
     // } else {
     //   size= 14;
     // }
 
+
     let latLng = new google.maps.LatLng(data.lat,data.lon);
+
     let marker = new google.maps.Marker({
       position: latLng,
       map: this.map,
       icon: {
-        url: "markerblue2.png",
-        scaledSize: new google.maps.Size(size, size)
+        url: url,
+        scaledSize: new google.maps.Size(radius, radius)
       }
-      // animation: google.maps.Animation.DROP,
     });
     this.addInfoWindowForBike(data, marker);
   };
+
 
   $(globals.App.mapSetup.bind(globals.App));
 

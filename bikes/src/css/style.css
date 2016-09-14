@@ -13,6 +13,12 @@
   margin-top: 10px;
 }
 
+.logo {
+  position: absolute;
+  z-index: 10;
+}
+
+
 .switchButton1 {
   font-size: 0.8em;
   background-color: rgba(122, 48, 108, 1);
@@ -88,6 +94,8 @@
   color: cornflowerblue;
   font-family: helvetica;
   font-size: 1.1em;
+  font-family: 'Courgette', cursive;
+
 }
 
 .nav-styling {
