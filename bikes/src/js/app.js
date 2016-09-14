@@ -14,7 +14,9 @@
     $(".logout").on("click", this.logout.bind(this));
     $('.location').on('click', this.getCurrentLocation);
     $(".usersIndex").on("click", this.usersIndex.bind(this));
-    $(".emptyMap").on("click", this.emptyMap);
+    $(".emptyMap").on("click", this.emptyMap.bind(this));
+    $(".hideButton").on("click", this.hideButton);
+
 
     this.$main.on("submit", "form", this.handleForm);
 
@@ -25,7 +27,9 @@
      this.loggedOutState();
      $(".loginForm").hide();
      $(".registerForm").hide();
-
+     $(".btn-group").hide();
+     $("switchButton1").hide();
+     $("switchButton2").hide();
     }
   };
 
@@ -33,6 +37,9 @@
   globals.App.loggedInState = function(){
     console.log("We are logged in now");
     $(".loggedOut").hide();
+    $(".btn-group").show();
+    $("switchButton1").show();
+    $("switchButton2").show();
     $(".loggedIn").show();
     this.usersIndex();
 
@@ -49,6 +56,12 @@
 
   globals.App.emptyMap = function() {
     globals.App.mapSetup();
+  };
+
+  globals.App.hideButton = function() {
+    $("switchButton1").hide();
+    $("switchButton2").hide();
+    $(".btn-group").hide();
   };
 
   globals.App.loggedOutState = function(){
