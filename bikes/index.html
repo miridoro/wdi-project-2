@@ -17,7 +17,7 @@
   <body>
     <nav class="navbar navbar-light bg-faded">
       <div class="container">
-        <a class="navbar-brand" href="/"><h3 id="brand">Salamander Bikes</h1></a>
+        <a class="navbar-brand" href="/"><p id="brand">Salamander Bikes</p></a>
         <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
           &#9776;
         </button>
@@ -27,19 +27,20 @@
               <a class="nav-link usersIndex loggedIn" href="#"> <span class="sr-only">(current)</span></a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link register loggedOut new" data-toggle="modal" data-target="#myModal" href="#">Register</a>
+              <a class="nav-link register loggedOut new" data-toggle="modal" data-target="#myModal" href="#"><p class="nav-styling">
+            Register</p></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link login loggedOut new" data-toggle="modal" data-target="#myModal2" href="#">Login</a>
+              <a class="nav-link login loggedOut new" data-toggle="modal" data-target="#myModal2" href="#"><p class="nav-styling">Login</p></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link logout emptyMap loggedIn" href="/">Logout</a>
+              <a class="nav-link logout emptyMap loggedIn" href="/"><p class="nav-styling">Logout</p></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link location" href="#">Find me!</a>
+              <a class="nav-link location" href="#"><p class="nav-styling">Find me!</p></a>
             </li>
             <div class="greeting">
-              <a class="nav-link userName" href="#"><h4 id="username"></h4></a>
+              <a class="nav-link userName" href="#"><p class="nav-styling" id="username"></p></a>
             </div>
 
           </ul>
@@ -156,8 +157,11 @@
 
 
 <div class="btn-group">
-<button type="button" class="btn btn-primary switchButton1">Free Bikes</button>
-<button type="button" class="btn btn-primary switchButton2">Empty Docks</button>
+<!-- <button type="button" class="btn btn-primary switchButton1">Free Bikes</button>
+<button type="button" class="btn btn-primary switchButton2">Empty Docks</button> -->
+
+<button type="button" class="switchButton1">Empty Docks</button>
+<button type="button" class="switchButton2">Available Bikes</button>
 
 </div>
 

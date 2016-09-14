@@ -9,20 +9,32 @@
   z-index: 2;
   margin: 0 auto;
   position: absolute;
-  margin-left: 300px;
-  margin-top: 20px;
+  margin-left: 460px;
+  margin-top: 10px;
 }
 
 .switchButton1 {
-  font-size: 0.7em;
-  background-color: white;
-  color: green;
+  font-size: 0.8em;
+  background-color: rgba(122, 48, 108, 1);
+  color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.switchButton1:hover {
+  background-color: rgba(122, 48, 108, 0.7);
+}
+
+.switchButton2:hover {
+  background-color: rgba(53, 87, 159, 0.7);
 }
 
 .switchButton2 {
-  font-size: 0.7em;
-  background-color: white;
-  color: blue;
+  font-size: 0.8em;
+  background-color: rgba(53, 87, 159, 1);
+  color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
 }
 
 #bikeLocation {
@@ -64,19 +76,9 @@
 }*/
 
 
-nav {
-  position: absolute;
+/*main {
   z-index: 2;
-  background: rgba(0, 0, 0, 0.9);
-  text-align: center;
-  /*width: 300px;*/
-  /*height: 80px;*/
-}
-
-main {
-  z-index: 2;
-
-}
+}*/
 
 .greeting {
   text-align: right;
@@ -85,4 +87,9 @@ main {
 #brand {
   color: cornflowerblue;
   font-family: helvetica;
+  font-size: 1.1em;
+}
+
+.nav-styling {
+font-size: 1em;
 }
