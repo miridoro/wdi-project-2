@@ -1,0 +1,217 @@
+$blue:       cornflowerblue;
+$salamander: #3c50a3;
+$purple:     rgba(122, 48, 108, 1);
+$darkPurple: rgba(122, 48, 108, 0.7);
+$white:      white;
+$grey:       #f7f7f9;
+
+$logo-font: 'Courgette', cursive;
+
+#map-canvas {
+  width: 100%;
+  /* vh is view port */
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.btn-group {
+  z-index: 2;
+  margin: 0 auto;
+  position: absolute;
+  margin-left: 460px;
+  margin-top: 10px;
+}
+
+.switchButton1 {
+  font-size: 0.8em;
+  background-color: $purple;
+  color: $white;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.switchButton1:hover {
+  background-color: $darkPurple;
+}
+
+.switchButton2:hover {
+  background-color: rgba(53, 87, 159, 0.7);
+}
+
+.switchButton2 {
+  font-size: 0.8em;
+  background-color: rgba(53, 87, 159, 1);
+  color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+#bikeLocation {
+  margin: 10px;
+  font-size: 1.3em;
+  text-align: left;
+  font-family: helvetica;
+}
+
+#bikesAvailable {
+  margin: 10px;
+  text-align: left;
+  font-size: 1.3em;
+  font-family: helvetica;
+}
+
+#emptyDocks {
+  margin: 10px;
+  text-align: left;
+  font-size: 1.3em;
+  font-family: helvetica;
+}
+
+.hideForm {
+  display: none;
+}
+
+.userName {
+  float: right;
+}
+
+.greeting {
+  text-align: right;
+}
+
+//*********************************************************** Scaffolding
+
+html, body {
+  height: 100%;
+}
+
+//*********************************************************** Navigation
+
+nav {
+  z-index: 2;
+}
+
+#brand {
+  color: $blue;
+  font-family: helvetica;
+  font-size: 1.5em;
+  font-family: $logo-font;
+  line-height: 30px;
+
+  img {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+.nav {
+  float: right;
+  line-height: 30px;
+}
+
+.navbar-toggler {
+  float: right;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $blue;
+
+  &:hover {
+    color: $salamander;
+  }
+}
+
+@media (max-width: 544px) {
+  nav {
+    .container {
+      position: relative;
+    }
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    color: $salamander;
+  }
+
+  #brand {
+    display: block;
+  }
+
+  .navbar-brand {
+    float: none;
+  }
+
+  .nav {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-item {
+    float: left;
+    display: block;
+    width: 100%;
+
+    .nav-link {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .collapse.in {
+    float: left;
+  }
+}
+
+//*********************************************************** Home
+
+#welcomeMessage {
+  position: absolute;
+  top: 67px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background: rgba(60,80,163,0.8);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .welcome {
+    h1 {
+      color: white;
+    }
+
+    h3 {
+      color: #f7f7f9;
+    }
+  }
+}
+
+//*********************************************************** Buttons
+
+.btn-primary {
+  background-color: $blue;
+  border-color: $blue;
+  &:hover {
+    background-color: $salamander;
+    border-color: $salamander;
+  }
+}
+
+//*********************************************************** Modal
+
+.modal-header {
+  background: $grey;
+  border-radius: 3px 3px 0 0;
+}
+
+.modal {
+  h4 {
+    color: $salamander;
+  }
+}

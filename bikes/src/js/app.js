@@ -40,6 +40,8 @@
     $(".loggedOut").hide();
     $(".btn-group").show();
     $(".loggedIn").show();
+    $("#map-canvas").show();
+    $("#welcomeMessage").hide();
     this.usersIndex();
 
     //draw bike markers when user logs in
@@ -61,14 +63,10 @@
     $(".btn-group").hide();
   };
 
-
-
-
   globals.App.showBikesMarkers = function(whichMarker) {
     this.whichMarker = whichMarker;
     globals.App.redrawMap();
   };
-
 
   globals.App.loggedOutState = function(){
     console.log("We are logged out now");
@@ -76,9 +74,10 @@
     $(".loggedOut").show();
     $(".loginForm").hide();
     $(".registerForm").hide();
-    $(".card-deck-wrapper").hide();
     $(".userName").html("");
-  //  this.register();
+    $("#welcomeMessage").show();
+    // $("#map-canvas").show();
+    // this.register();
   };
 
 
@@ -182,4 +181,4 @@
 
   $(globals.App.init.bind(globals.App));
 
-}(this));
+}(window));

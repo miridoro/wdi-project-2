@@ -11,7 +11,7 @@
         var canvas = document.getElementById('map-canvas');
 
         var mapOptions = {
-            zoom: 12,
+            zoom: 13,
             center: new google.maps.LatLng(51.506178, -0.088369),
             mapType: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: true,
@@ -200,6 +200,14 @@
         });
     };
 
+    globals.App.redrawMap = function () {
+        globals.App.emptyMap();
+        return $.get("http://localhost:3000/bikes").done(function (data) {
+
+            globals.App.loopThroughBikes(data);
+        });
+    };
+
     globals.App.getBikePoints = function () {
         return $.get("http://localhost:3000/bikes").done(this.loopThroughBikes);
     };
@@ -239,16 +247,26 @@
     };
 
     globals.App.createMarker = function (data) {
-        var sizeBikes = Math.sqrt(data.NbBikes) * 3.5;
-        var sizeDocks = Math.sqrt(data.NbEmptyDocks) * 3;
+
+        var radius = 0;
+        var url = "";
+
+        if (this.whichMarker === "NbBikes") {
+            radius = Math.sqrt(data.NbBikes) * 3.5;
+            url = "/images/markerpurple.png";
+        } else {
+            radius = Math.sqrt(data.NbEmptyDocks) * 3;
+            url = "/images/markerblue2.png";
+        }
+
+        // let sizeBikes = Math.sqrt(data.NbBikes) * 3.5;
+        // let sizeDocks = Math.sqrt(data.NbEmptyDocks) * 3;
         // if(data.NbBikes < 3){
         //   size = 8;
         // } else {
         //   size= 14;
         // }
 
-        var urlBikes = "markerblue2.png";
-        var urlDocks = "markerpurple.png";
 
         var latLng = new google.maps.LatLng(data.lat, data.lon);
 
@@ -256,12 +274,12 @@
             position: latLng,
             map: this.map,
             icon: {
-                url: urlBikes,
-                scaledSize: new google.maps.Size(sizeBikes, sizeBikes)
+                url: url,
+                scaledSize: new google.maps.Size(radius, radius)
             }
         });
         this.addInfoWindowForBike(data, marker);
     };
 
     $(globals.App.mapSetup.bind(globals.App));
-})(undefined);
+})(window);

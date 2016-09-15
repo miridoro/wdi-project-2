@@ -20,8 +20,8 @@
     $(".usersIndex").on("click", this.usersIndex.bind(this));
     $(".emptyMap").on("click", this.emptyMap.bind(this));
     $(".hideButton").on("click", this.hideButton);
-    $(".switchButton1").on("click", this.showBikesMarkers.bind(this, $(".switchButton1")));
-    $(".switchButton2").on("click", this.showBikesMarkers);
+    $(".switchButton1").on("click", this.showBikesMarkers.bind(this, "NbBikes"));
+    $(".switchButton2").on("click", this.showBikesMarkers.bind(this, "NbEmpty"));
 
     this.$main.on("submit", "form", this.handleForm);
 
@@ -41,10 +41,12 @@
     $(".loggedOut").hide();
     $(".btn-group").show();
     $(".loggedIn").show();
+    $("#map-canvas").show();
+    $("#welcomeMessage").hide();
     this.usersIndex();
 
     //draw bike markers when user logs in
-    globals.App.getBikePoints();
+    globals.App.redrawMap();
 
     var username = window.localStorage.getItem("username");
     console.log("Current user is: " + username);
@@ -61,9 +63,9 @@
     $(".btn-group").hide();
   };
 
-  globals.App.showBikesMarkers = function (button) {
-    // $(".switchButton2").addClass("bikes");
-    alert("Hello world");
+  globals.App.showBikesMarkers = function (whichMarker) {
+    this.whichMarker = whichMarker;
+    globals.App.redrawMap();
   };
 
   globals.App.loggedOutState = function () {
@@ -72,9 +74,10 @@
     $(".loggedOut").show();
     $(".loginForm").hide();
     $(".registerForm").hide();
-    $(".card-deck-wrapper").hide();
     $(".userName").html("");
-    //  this.register();
+    $("#welcomeMessage").show();
+    // $("#map-canvas").show();
+    // this.register();
   };
 
   globals.App.register = function () {
@@ -165,4 +168,4 @@
   };
 
   $(globals.App.init.bind(globals.App));
-})(undefined);
+})(window);

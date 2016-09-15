@@ -283,6 +283,7 @@
   );
   };
 
+
   globals.App.getBikePoints = function() {
     return $.get("http://localhost:3000/bikes").done(this.loopThroughBikes);
   };
@@ -332,11 +333,11 @@
 
     if(this.whichMarker === "NbBikes"){
       radius = Math.sqrt(data.NbBikes) * 3.5;
-      url = "markerblue2.png";
+      url = "/images/markerpurple.png";
     }
     else {
       radius = Math.sqrt(data.NbEmptyDocks) * 3;
-      url = "markerpurple.png";
+      url = "/images/markerblue2.png";
     }
 
     // let sizeBikes = Math.sqrt(data.NbBikes) * 3.5;
@@ -364,4 +365,4 @@
 
   $(globals.App.mapSetup.bind(globals.App));
 
-}(this));
+}(window));

@@ -1,6 +1,7 @@
 const gulp     = require("gulp");
 const babel    = require("gulp-babel");
 const cleanCSS = require("gulp-clean-css");
+const sass 	   = require("gulp-sass");
 
 const src  = "src";
 const dist = "public";
@@ -13,18 +14,19 @@ gulp.task("es6", () => {
 		.pipe(gulp.dest(dist));
 });
 
-gulp.task("minifyCSS", () => {
-	return gulp.src(`${src}/**/*.css`)
-		.pipe(cleanCSS({ compatibility: "ie8"}))
-		.pipe(gulp.dest(dist));
+gulp.task('sass', () => {
+	return gulp.src(`${src}/scss/style.scss`)
+    .pipe(sass(sass()).on('error', sass.logError))
+    .pipe(cleanCSS({ compatibility: "ie8"}))
+    .pipe(gulp.dest(`${dist}/css`));
 });
 
 gulp.task("watch", () => {
   gulp.watch(`${src}/**/*.js`, ['es6']);
-	gulp.watch(`${src}/**/*.css`, ['minifyCSS']);
+	gulp.watch(`${src}/**/*.scss`, ['sass']);
 });
 
-gulp.task("default", ['es6', 'minifyCSS', 'watch']);
+gulp.task("default", ['es6', 'sass', 'watch']);
 
 
 
