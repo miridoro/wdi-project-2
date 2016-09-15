@@ -10,7 +10,7 @@ $logo-font: 'Courgette', cursive;
 #map-canvas {
   width: 100%;
   /* vh is view port */
-  height: 100vh;
+  height: calc(100vh - 67px);;
   margin: 0 auto;
 }
 
@@ -23,48 +23,52 @@ $logo-font: 'Courgette', cursive;
 }
 
 .switchButton1 {
-  font-size: 0.8em;
+  font-size: 1em;
   background-color: $purple;
   color: $white;
   border-radius: 5px;
-  border: 1px solid grey;
+  border: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 .switchButton1:hover {
   background-color: $darkPurple;
 }
 
-.switchButton2:hover {
-  background-color: rgba(53, 87, 159, 0.7);
-}
-
 .switchButton2 {
-  font-size: 0.8em;
+  font-size: 1em;
   background-color: rgba(53, 87, 159, 1);
   color: white;
   border-radius: 5px;
-  border: 1px solid grey;
+  border: none;
+}
+
+.switchButton2:hover {
+  background-color: rgba(53, 87, 159, 0.7);
 }
 
 #bikeLocation {
   margin: 10px;
   font-size: 1.3em;
   text-align: left;
-  font-family: helvetica;
+  font-family:'Roboto', sans-serif;
+  color: grey;
 }
 
 #bikesAvailable {
   margin: 10px;
   text-align: left;
   font-size: 1.3em;
-  font-family: helvetica;
+  font-family:'Roboto', sans-serif;
+  font-family:'Roboto', sans-serif;
 }
 
 #emptyDocks {
   margin: 10px;
   text-align: left;
   font-size: 1.3em;
-  font-family: helvetica;
+  font-family: 'Roboto', sans-serif;
+  color: grey;
 }
 
 .hideForm {
@@ -89,6 +93,7 @@ html, body {
 
 nav {
   z-index: 2;
+  font-family: 'Roboto', sans-serif;
 }
 
 #brand {
@@ -166,31 +171,76 @@ nav {
 
 //*********************************************************** Home
 
-#welcomeMessage {
-  position: absolute;
-  top: 67px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  background: rgba(60,80,163,0.8);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  .welcome {
-    h1 {
-      color: white;
-    }
+//.phoneSection {
+//
+//  //width: 230px;
+//  //height: auto;
+//  //margin-left: 1000px;
+//  //margin-top: 100px;
+//
+//  display: flex;
+//  align-items: right;
+//  justify-content: right;
+//  text-align: right;
+//  top: 67px;
+//  bottom: 0;
+//  left: 0;
+//  right: 0;
+//
+//  #iphone {
+//    position: absolute;
+//    z-index: 1000;
+//    height: auto;
+//    width: 20%;
+//    margin-top: 65px;
+//    margin-left: 100px;
+//  }
+//
+//  #appPic {
+//    position: absolute;
+//    z-index: 500;
+//    margin-top: 153px;
+//    margin-left: 123px;
+//    //width: 235px;
+//    width: 17%;
+//    height: auto;
+//
+//  }
+//}
 
-    h3 {
-      color: #f7f7f9;
-    }
-  }
-}
+//#welcomeMessage {
+//  position: absolute;
+//  top: 67px;
+//  bottom: 0;
+//  left: 0;
+//  right: 0;
+//  z-index: 1;
+//  height: 100%;
+//  width: 100%;
+//  background: rgba(60,80,163,0.8);
+//  text-align: center;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//
+//  .left {
+//    h1 {
+//      color: white;
+//      font-size: 2.5em;
+//      font-family: 'Roboto:300', sans-serif;
+//      span {
+//        font-family: $logo-font;
+//      }
+//    }
+//    h3 {
+//      color: #f7f7f9;
+//      font-size: 1.3em;
+//      font-family: 'Roboto:300', sans-serif;
+//    }
+//  }
+
+
 
 //*********************************************************** Buttons
 
@@ -215,3 +265,93 @@ nav {
     color: $salamander;
   }
 }
+
+.homepage {
+  position: absolute;
+  top: 67px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: calc(100vh - 67px);
+  width: 100%;
+  background: rgba(60,80,163,0.8);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .left {
+    h1 {
+      color: white;
+      font-size: 2.5em;
+      font-family: 'Roboto:300', sans-serif;
+
+      span {
+        font-family: $logo-font;
+      }
+    }
+    h3 {
+      color: #f7f7f9;
+      font-size: 1.3em;
+      font-family: 'Roboto:300', sans-serif;
+    }
+  }
+
+  .right {
+    width: 320px;
+    height: 572px;
+
+    .phone {
+      margin: 0 auto;
+      background: url(http://community.uxmastery.com/uploads/db4094/original/1X/b2235f688a6a5c0d83e187db8f53925346e392df.png);
+      background-repeat: no-repeat;
+      background-size: 297px 583px;
+      height: 572px;
+
+      img {
+        margin-top: 72px;
+      }
+    }
+  }
+}
+
+
+//.homepage {
+//  position: absolute;
+//  top: 67px;
+//  bottom: 0;
+//  left: 0;
+//  right: 0;
+//  z-index: 1;
+//  height: 100%;
+//  width: 100%;
+//  background: rgba(60,80,163,0.8);
+//  text-align: center;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//
+//  .left {
+//    h1 {
+//      color: white;
+//      font-size: 2.5em;
+//      font-family: 'Roboto:300', sans-serif;
+//      span {
+//        font-family: $logo-font;
+//      }
+//    }
+//
+//    h3 {
+//      color: #f7f7f9;
+//      font-size: 1.3em;
+//      font-family: 'Roboto:300', sans-serif;
+//    }
+//  }
+//
+//  .phoneSection {
+//    img {
+//      width: 100px;
+//    }
+//  }
+//}

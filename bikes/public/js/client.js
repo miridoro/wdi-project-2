@@ -190,7 +190,7 @@
                 position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                 map: globals.App.map,
                 icon: {
-                    url: "markerred.png",
+                    url: "/images/markerred.png",
                     scaledSize: new google.maps.Size(21, 21)
                 }
             });
@@ -238,7 +238,7 @@
             if (typeof _this.infoWindow != "undefined") _this.infoWindow.close();
 
             _this.infoWindow = new google.maps.InfoWindow({
-                content: '<div><p id="bikeLocation">Location: ' + data.name + '</p><p id="bikesAvailable"><strong>Bikes Available: ' + data.NbBikes + '</strong></p>\n        <p id="emptyDocks"><strong>Empty Docks: ' + data.NbEmptyDocks + '</strong></p>\n        </div>'
+                content: '<div><p id="bikeLocation" style="color: #696969"><strong>Location:</strong> ' + data.name + '</p><p id="bikesAvailable" style="color: #696969"><strong>Bikes Available: </strong>' + data.NbBikes + '</p>\n        <p id="emptyDocks" style="color: #696969"><strong>Empty Docks:</strong> ' + data.NbEmptyDocks + '</p>\n        </div>'
             });
 
             _this.infoWindow.open(_this.map, marker);

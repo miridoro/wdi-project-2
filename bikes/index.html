@@ -3,11 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>Salamander Bikes</title>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" charset="utf-8"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASdLQ_QGa284Pgn7kZEaEglJRl5Z_bcBI" charset="utf-8"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"></script>
@@ -128,17 +133,22 @@
 
 
     <div class="btn-group">
-      <button type="button" class="switchButton1" value="NbEmpty">Empty Docks</button>
-      <button type="button" class="switchButton2" value="NbBikes">Available Bikes</button>
+      <button type="button" class="switchButton1" value="NbEmpty">Available Bikes</button>
+      <button type="button" class="switchButton2" value="NbBikes">Empty Docks</button>
     </div>
   </main>
 
-  <div id="welcomeMessage">
-    <section class="welcome">
-      <h1>Welcome to Salamander Bikes!</h1>
-      <h3>Please register for a fun city bike experience.</h3>
-    </section>
-  </div>
+  <section class="homepage">
+    <div class="col-sm-7 left">
+      <h1>Welcome to <span>Salamander Bikes</span>!</h1>
+      <h3>Please sign-up for a fun city bike experience.</h3>
+    </div>
+    <div class="col-sm-5 right">
+      <div class="phone">
+        <img src="/images/pic1.png"/>
+      </div>
+    </div>
+  </section>
 
   <div id="map-canvas"></div>
 

@@ -27,10 +27,10 @@
       this.loggedInState();
     } else {
 
-     this.loggedOutState();
-     $(".loginForm").hide();
-     $(".registerForm").hide();
-     $(".btn-group").hide();
+      this.loggedOutState();
+      $(".loginForm").hide();
+      $(".registerForm").hide();
+      $(".btn-group").hide();
     }
   };
 
@@ -41,11 +41,11 @@
     $(".btn-group").show();
     $(".loggedIn").show();
     $("#map-canvas").show();
-    $("#welcomeMessage").hide();
+    $(".homepage").hide();
     this.usersIndex();
 
     //draw bike markers when user logs in
-    globals.App.redrawMap();
+    // globals.App.redrawMap();
 
     var username = window.localStorage.getItem("username");
     console.log("Current user is: " + username);
@@ -75,7 +75,7 @@
     $(".loginForm").hide();
     $(".registerForm").hide();
     $(".userName").html("");
-    $("#welcomeMessage").show();
+    $(".homepage").show();
     // $("#map-canvas").show();
     // this.register();
   };
