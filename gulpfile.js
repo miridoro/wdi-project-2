@@ -30,7 +30,9 @@ gulp.task("default", ['es6', 'sass', 'watch']);
 
 
 
-//bower install bootstrap#v4.0.0-alpha.2  —save
+//bower install bootstrap#v4.0.0-alpha.4  —save
+//if you run the bootstrap 4 command u dont need to run the tether as well
+// if use the new gulp file, need to make sure the css file has extension of .scss
  //bower install tether —save
 
 // const gulp     	       = require("gulp");                     // => use gulp
