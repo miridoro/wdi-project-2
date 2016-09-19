@@ -133,3 +133,5 @@ app.get('/bikes', function (req, res) {
 app.use("/api", apiRouter);
 
 app.listen(config.port, () => console.log(`Express started on port: ${config.port}`));
+
+module.exports = app;
