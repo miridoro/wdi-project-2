@@ -1,9 +1,17 @@
-# wdi-project-2
-This is my second project from my GA course
-#  Santander Bike App
+# Salamander Bikes
+
+## wdi-project-2
+This is my second project from my WDI-course at General Assembly in London.
 
 
-#####[Try out the app here!](https://infinite-dusk-69771.herokuapp.com/)
+![alt text](/Users/Miriam/development/wdi-project-2/salamanderbikes.png "Salamander Bikes Frontpage")
+
+![alt text](/salamanderbikes.png "Salamander Bikes Frontpage")
+
+#  Salamander Bike App
+
+
+#####[Try out the app here!](http://salamanderbikes.herokuapp.com/)
 
 
 ####Approach / How it works
@@ -21,6 +29,27 @@ This is a simple Google Maps App that allows the User to display all Santander B
 * MongoDB is used to store individual user login information
 * Gulp was used as the task manager
 
+####How to run it locally
+* go into wdi-project-2 directory
+* Node must be installed
+* ```npm i```
+* launch mongod
+* launch nodemon
+* open localhost:3000/ in browser
+
 #### Problems & Challenges
 
-A challenge was to initially start the project due to the large amount of files that had to be included. Another challenge was to decide on a topic that had good quality data and then to display it on the map. I immersed myself in these challenges over a two day period (the weekend) and was able to solve most issues. Finally, deciding on a style and using the correct styling syntax, in addition to customizing bootstrap 4.0 styling was another challenge. 
+A challenge was to initially start the project due to the large amount of files that had to be included. Another challenge was to decide on a topic that had good quality data and then to display it on the map. I immersed myself in these challenges over a two day period and was able to solve most issues. Finally, deciding on a style and using the correct styling syntax, in addition to customizing bootstrap 4.0 styling was another small challenge. 
+
+#### Errors
+
+If you encounter any errors, type ```command + option + j``` to open up javascript console in browser.
+
+#### How to empty a MongoDB Database from Command Line
+
+* type ``` mongo angular-authentication ```
+* Angular-authentication is the name of the app in this case
+* Terminal will now enter MongoDB Shell
+* now type ``` db.dropDatabase() ```
+* Now we can re-populate the database
+
