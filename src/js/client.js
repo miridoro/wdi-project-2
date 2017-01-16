@@ -275,7 +275,7 @@
 
   globals.App.redrawMap = function() {
       globals.App.emptyMap();
-    return $.get("http://salamanderbikes.herokuapp.com/bikes").done(
+    return $.get("https://infinite-dusk-69771.herokuapp.com/bikes").done(
       function(data) {
 
         globals.App.loopThroughBikes(data);
@@ -286,7 +286,7 @@
 
   globals.App.getBikePoints = function() {
     // return $.get("http://localhost:3000/bikes").done(this.loopThroughBikes);
-    return $.get("http://salamanderbikes.herokuapp.com/bikes").done(this.loopThroughBikes);
+    return $.get("https://infinite-dusk-69771.herokuapp.com/bikes").done(this.loopThroughBikes);
   };
 
   // globals.App.getDockPoints = function() {
