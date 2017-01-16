@@ -4,7 +4,7 @@
   if (!('App' in globals)) { globals.App = {}; }
 
   globals.App.init = function() {
-    this.apiUrl = "http://salamanderbikes.herokuapp.com/";
+    this.apiUrl = "https://infinite-dusk-69771.herokuapp.com/";
     // this.apiUrl = "http://localhost:3000/api";
     this.$main  = $("main");
     this.whichMarker = "NbBikes";
