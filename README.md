@@ -39,6 +39,8 @@ This is a simple Google Maps App that allows the User to display all Santander B
 * launch nodemon
 * open localhost:3000/ in browser
 * When making an update, need to push this to heroku, so the changes can be viewed there too
+* Command: git add -A
+* Command: git commit -m""
 * Command: git push origin master && git push heroku master
 
 #### Problems & Challenges

@@ -1,12 +1,14 @@
-(function(globals){
+(function(globals) {
   "use strict";
 
-  if (!('App' in globals)) { globals.App = {}; }
+  if (!('App' in globals)) {
+    globals.App = {};
+  }
 
   globals.App.init = function() {
-    this.apiUrl = "https://infinite-dusk-69771.herokuapp.com/api";
+    this.apiUrl = "https://salamanderbikes.herokuapp.com/api";
     // this.apiUrl = "http://localhost:3000/api";
-    this.$main  = $("main");
+    this.$main = $("main");
     this.whichMarker = "NbBikes";
 
 
@@ -36,7 +38,7 @@
   };
 
 
-  globals.App.loggedInState = function(){
+  globals.App.loggedInState = function() {
     console.log("We are logged in now");
     $(".loggedOut").hide();
     $(".btn-group").show();
@@ -69,7 +71,7 @@
     globals.App.redrawMap();
   };
 
-  globals.App.loggedOutState = function(){
+  globals.App.loggedOutState = function() {
     console.log("We are logged out now");
     $(".loggedIn").hide();
     $(".loggedOut").show();
@@ -108,7 +110,7 @@
   };
 
 
-  globals.App.usersIndex = function(){
+  globals.App.usersIndex = function() {
     if (event) event.preventDefault();
     let url = `${this.apiUrl}/users`;
 
@@ -131,14 +133,14 @@
   // };
 
 
-  globals.App.handleForm = function(){
+  globals.App.handleForm = function() {
     event.preventDefault();
     $('#myModal').modal('hide');
     $('#myModal2').modal('hide');
 
-    let url    = `${globals.App.apiUrl}${$(this).attr("action")}`;
+    let url = `${globals.App.apiUrl}${$(this).attr("action")}`;
     let method = $(this).attr("method");
-    let data   = $(this).serialize();
+    let data = $(this).serialize();
 
     return globals.App.ajaxRequest(url, method, data, (data) => {
       if (data.token) globals.App.setToken(data.token);
@@ -150,17 +152,17 @@
   };
 
 
-  globals.App.ajaxRequest = function(url, method, data, callback){
+  globals.App.ajaxRequest = function(url, method, data, callback) {
     return $.ajax({
-      url,
-      method,
-      data,
-      beforeSend: this.setRequestHeader.bind(this)
-    })
-    .done(callback)
-    .fail(data => {
-      console.log(data);
-    });
+        url,
+        method,
+        data,
+        beforeSend: this.setRequestHeader.bind(this)
+      })
+      .done(callback)
+      .fail(data => {
+        console.log(data);
+      });
   };
 
 
@@ -168,15 +170,15 @@
     return xhr.setRequestHeader("Authorization", `Bearer ${this.getToken()}`);
   };
 
-  globals.App.setToken = function(token){
+  globals.App.setToken = function(token) {
     return window.localStorage.setItem("token", token);
   };
 
-  globals.App.getToken = function(){
+  globals.App.getToken = function() {
     return window.localStorage.getItem("token");
   };
 
-  globals.App.removeToken = function(){
+  globals.App.removeToken = function() {
     return window.localStorage.clear();
   };
 
