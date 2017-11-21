@@ -13,6 +13,8 @@ This is my second project from my WDI-course at General Assembly in London.
 
 #####[Try out the app here!](http://salamanderbikes.herokuapp.com/)
 
+##### https://infinite-dusk-69771.herokuapp.com/
+
 
 ####Approach / How it works
 
@@ -36,6 +38,8 @@ This is a simple Google Maps App that allows the User to display all Santander B
 * launch mongod
 * launch nodemon
 * open localhost:3000/ in browser
+* When making an update, need to push this to heroku, so the changes can be viewed there too
+* Command: git push origin master && git push heroku master
 
 #### Problems & Challenges
 

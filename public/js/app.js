@@ -1,14 +1,15 @@
 "use strict";
 
-(function (globals) {
+(function(globals) {
   "use strict";
 
   if (!('App' in globals)) {
     globals.App = {};
   }
 
-  globals.App.init = function () {
-    this.apiUrl = "http://localhost:3000/api";
+  globals.App.init = function() {
+    // this.apiUrl = "http://localhost:3000/api";
+    this.apiUrl = "https://infinite-dusk-69771.herokuapp.com/api";
     this.$main = $("main");
     this.whichMarker = "NbBikes";
 
@@ -36,7 +37,7 @@
     }
   };
 
-  globals.App.loggedInState = function () {
+  globals.App.loggedInState = function() {
     console.log("We are logged in now");
     $(".loggedOut").hide();
     $(".btn-group").show();
@@ -55,20 +56,20 @@
     //this.getUser();
   };
 
-  globals.App.emptyMap = function () {
+  globals.App.emptyMap = function() {
     globals.App.mapSetup();
   };
 
-  globals.App.hideButton = function () {
+  globals.App.hideButton = function() {
     $(".btn-group").hide();
   };
 
-  globals.App.showBikesMarkers = function (whichMarker) {
+  globals.App.showBikesMarkers = function(whichMarker) {
     this.whichMarker = whichMarker;
     globals.App.redrawMap();
   };
 
-  globals.App.loggedOutState = function () {
+  globals.App.loggedOutState = function() {
     console.log("We are logged out now");
     $(".loggedIn").hide();
     $(".loggedOut").show();
@@ -80,33 +81,33 @@
     // this.register();
   };
 
-  globals.App.register = function () {
+  globals.App.register = function() {
     if (event) event.preventDefault();
     //added
     $(".loginForm").hide();
     $(".registerForm").show();
   };
 
-  globals.App.login = function () {
+  globals.App.login = function() {
     event.preventDefault();
 
     $(".registerForm").hide();
     $(".loginForm").show();
   };
 
-  globals.App.logout = function () {
+  globals.App.logout = function() {
     event.preventDefault();
     this.removeToken();
     this.loggedOutState();
   };
 
-  globals.App.usersIndex = function () {
+  globals.App.usersIndex = function() {
     if (event) event.preventDefault();
     var url = this.apiUrl + "/users";
 
-    return this.ajaxRequest(url, "get", null, function (data) {
+    return this.ajaxRequest(url, "get", null, function(data) {
 
-      $.each(data.users, function (i, user) {
+      $.each(data.users, function(i, user) {
         // $(".userName").append(`<h4> ${user._id}</h4>`);
         // $(".userName").html(`${user.username}`);
         // $(".userName").html(`${user._id}`);
@@ -122,7 +123,7 @@
   // };
 
 
-  globals.App.handleForm = function () {
+  globals.App.handleForm = function() {
     event.preventDefault();
     $('#myModal').modal('hide');
     $('#myModal2').modal('hide');
@@ -131,7 +132,7 @@
     var method = $(this).attr("method");
     var data = $(this).serialize();
 
-    return globals.App.ajaxRequest(url, method, data, function (data) {
+    return globals.App.ajaxRequest(url, method, data, function(data) {
       if (data.token) globals.App.setToken(data.token);
 
       window.localStorage.setItem("username", data.user.username);
@@ -140,30 +141,30 @@
     });
   };
 
-  globals.App.ajaxRequest = function (url, method, data, callback) {
+  globals.App.ajaxRequest = function(url, method, data, callback) {
     return $.ajax({
       url: url,
       method: method,
       data: data,
       beforeSend: this.setRequestHeader.bind(this)
-    }).done(callback).fail(function (data) {
+    }).done(callback).fail(function(data) {
       console.log(data);
     });
   };
 
-  globals.App.setRequestHeader = function (xhr, settings) {
+  globals.App.setRequestHeader = function(xhr, settings) {
     return xhr.setRequestHeader("Authorization", "Bearer " + this.getToken());
   };
 
-  globals.App.setToken = function (token) {
+  globals.App.setToken = function(token) {
     return window.localStorage.setItem("token", token);
   };
 
-  globals.App.getToken = function () {
+  globals.App.getToken = function() {
     return window.localStorage.getItem("token");
   };
 
-  globals.App.removeToken = function () {
+  globals.App.removeToken = function() {
     return window.localStorage.clear();
   };
 
