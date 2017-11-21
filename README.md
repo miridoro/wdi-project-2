@@ -42,6 +42,9 @@ This is a simple Google Maps App that allows the User to display all Santander B
 * Command: git add -A
 * Command: git commit -m""
 * Command: git push origin master && git push heroku master
+* If changing the name of the app, need to run this command:
+* git remote rm heroku
+* heroku git:remote -a salamanderbikes
 
 #### Problems & Challenges
 
